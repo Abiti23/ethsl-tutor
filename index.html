@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EthSL Tutor — Learn Ethiopian Sign Language Words</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo" aria-hidden="true">🤟</div>
+    <div>
+      <h1>EthSL Tutor</h1>
+      <p class="tagline">Everyday words in English &amp; አማርኛ, with hand practice</p>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="App sections">
+    <button role="tab" data-tab="learn" class="active">📖 Learn</button>
+    <button role="tab" data-tab="quiz">❓ Quiz</button>
+    <button role="tab" data-tab="camera">✋ Camera</button>
+    <button role="tab" data-tab="about">ℹ️ About</button>
+  </nav>
+
+  <main>
+    <!-- LEARN -->
+    <section id="tab-learn" role="tabpanel">
+      <p class="hint">Tap a card to flip it. Watch the video to see the signs.</p>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/9ieSucEN-a4"
+                title="EthSL sign language demo video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <div class="cards" id="cards"></div>
+      <p class="tip" id="practiceTip"></p>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="tab-quiz" role="tabpanel" hidden>
+      <div id="quizStart">
+        <p class="hint">10 questions. English ⇄ አማርኛ. No pressure — mistakes are how we learn.</p>
+        <button class="big" id="quizBegin">Start quiz</button>
+      </div>
+      <div id="quizPlay" hidden>
+        <p class="progress" id="quizProgress"></p>
+        <h2 id="quizQ"></h2>
+        <div class="options" id="quizOptions"></div>
+        <p class="feedback" id="quizFeedback"></p>
+      </div>
+      <div id="quizEnd" hidden>
+        <h2 id="quizScore"></h2>
+        <p class="hint" id="quizPraise"></p>
+        <button class="big" id="quizAgain">Try again</button>
+      </div>
+    </section>
+
+    <!-- CAMERA -->
+    <section id="tab-camera" role="tabpanel" hidden>
+      <p class="hint">The app watches your hand and tells you if your hand shape is right. Nothing is recorded or sent anywhere — it all happens on your device.</p>
+      <div class="seg" id="exerciseSeg" role="group" aria-label="Exercise">
+        <button data-ex="palm" class="active">✋ Open palm</button>
+        <button data-ex="fist">✊ Fist</button>
+      </div>
+      <div class="cam-wrap">
+        <video id="camVideo" playsinline muted></video>
+        <canvas id="camCanvas"></canvas>
+      </div>
+      <p class="cam-status" id="camStatus">Press Start camera, then show your hand.</p>
+      <div class="cam-row">
+        <button class="big" id="camStart">Start camera</button>
+        <button class="big ghost" id="camStop" disabled>Stop</button>
+      </div>
+      <p class="hint">✅ Correct holds: <strong id="camWins">0</strong></p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="tab-about" role="tabpanel" hidden>
+      <h2>What is EthSL Tutor?</h2>
+      <p>A small learning helper for hearing family members in Ethiopia who want to
+         communicate with their Deaf loved ones. It teaches everyday words in
+         English and Amharic, quizzes you, and lets you practice hand shapes with your camera.</p>
+      <h2>Built by</h2>
+      <p>Mintesnot Mathewos Mentamo, Hawassa, Ethiopia — founder of EthSL.</p>
+      <h2>An honest note</h2>
+      <p>Sign language is visual and varies by community. This app teaches words and
+         hand-shape practice, but it cannot replace learning from a Deaf signer.
+         Please verify every sign with a Deaf teacher in your community.</p>
+      <h2>Privacy</h2>
+      <p>The camera practice runs 100% on your device. No video is recorded, uploaded, or shared.</p>
+    </section>
+  </main>
+
+  <footer>
+    EthSL Tutor · built for Build With AI: Basics · MIT License
+  </footer>
+</div>
+<script src="lessons.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

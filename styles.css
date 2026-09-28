@@ -1,0 +1,89 @@
+/* EthSL Tutor — simple, mobile-first, high-contrast. */
+:root {
+  --bg: #101828;
+  --card: #1d2939;
+  --ink: #f9fafb;
+  --muted: #98a2b3;
+  --accent: #12b76a;
+  --accent-ink: #052e16;
+  --warn: #f79009;
+  --bad: #f04438;
+  --line: #344054;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+.app { max-width: 640px; margin: 0 auto; padding: 16px 16px 40px; }
+header { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.logo { font-size: 44px; }
+h1 { margin: 0; font-size: 24px; }
+.tagline { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+h2 { font-size: 18px; margin: 18px 0 8px; }
+p { line-height: 1.55; }
+.hint { color: var(--muted); font-size: 14px; }
+.tip {
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px; font-size: 14px; color: var(--muted);
+}
+
+.tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+.tabs button {
+  flex: 1; padding: 10px 4px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--card); color: var(--ink); font-size: 14px; cursor: pointer;
+}
+.tabs button.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 700; }
+
+.video-wrap { position: relative; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 14px; background: #000; }
+.video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 10px; text-align: center; cursor: pointer; min-height: 118px;
+  display: flex; flex-direction: column; justify-content: center; gap: 4px;
+}
+.card .front-en { font-size: 18px; font-weight: 700; }
+.card .front-hint { font-size: 12px; color: var(--muted); }
+.card .back-am { font-size: 26px; font-weight: 700; }
+.card .back-say { font-size: 13px; color: var(--muted); font-style: italic; }
+
+button.big {
+  display: inline-block; padding: 14px 28px; font-size: 17px; font-weight: 700;
+  border-radius: 12px; border: 0; background: var(--accent); color: var(--accent-ink);
+  cursor: pointer; margin: 6px 4px;
+}
+button.big.ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
+button.big:disabled { opacity: 0.45; cursor: default; }
+
+.progress { color: var(--muted); font-size: 14px; }
+.options { display: grid; gap: 10px; margin-top: 12px; }
+.options button {
+  padding: 14px; font-size: 18px; border-radius: 12px; border: 1px solid var(--line);
+  background: var(--card); color: var(--ink); cursor: pointer; text-align: center;
+}
+.options button.correct { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.options button.wrong { background: var(--bad); border-color: var(--bad); color: #fff; }
+.options button:disabled { cursor: default; }
+.feedback { min-height: 28px; font-size: 16px; font-weight: 600; }
+.feedback.good { color: var(--accent); }
+.feedback.bad { color: var(--warn); }
+
+.seg { display: flex; gap: 8px; margin: 12px 0; }
+.seg button {
+  flex: 1; padding: 12px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--card); color: var(--ink); font-size: 16px; cursor: pointer;
+}
+.seg button.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 700; }
+
+.cam-wrap { position: relative; border-radius: 12px; overflow: hidden; background: #000; aspect-ratio: 4 / 3; }
+.cam-wrap video, .cam-wrap canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cam-wrap video { transform: scaleX(-1); } /* mirror selfie view */
+.cam-status { font-size: 16px; font-weight: 600; min-height: 28px; }
+.cam-status.ok { color: var(--accent); }
+.cam-row { display: flex; gap: 8px; }
+
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
